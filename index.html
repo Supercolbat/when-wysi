@@ -1,0 +1,60 @@
+<!-- i wrote this in like 10 minutes uhhh -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>wysi when??</title>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background-image: url(/i_dont_see_it.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center top;
+      }
+
+      p {
+        color: white;
+        font-family: sans-serif;
+        font-size: 2rem;
+        line-height: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <p>There are only</p>
+    <p id="wysi">idk days idk hours idk mins idk secs</p>
+    <noscript>
+      <p>mate enable javascript will ye?</p>
+    </noscript>
+    <p>until you see it!</p>
+
+    <script>
+      const doISeeIt = new Date();
+      const whenYouSawIt = doISeeIt.getMonth() > 6 || (
+        doISeeIt.getMonth() == 6 && doISeeIt.getDate() >= 27
+      );
+      const wysi = new Date(doISeeIt.getFullYear() + whenYouSawIt, 6, 27);
+
+      const Wysi = document.getElementById`wysi`;
+
+      setInterval(() => {
+        if (wysi.getTime() <= Date.now()) {
+          document.body.style.backgroundImage="url(/i_see_it.png)"
+        }
+
+        const diff = new Date(wysi.getTime() - Date.now());
+        Wysi.innerText = `${diff.getDate()} days ${diff.getHours()} hours ${diff.getMinutes()} mins ${diff.getSeconds()} secs`;
+      }, 1000);
+    </script>
+  </body>
+</html>
