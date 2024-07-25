@@ -16,7 +16,7 @@
         justify-content: center;
         align-items: center;
 
-        background-image: url(/i_dont_see_it.png);
+        background-image: url(i_dont_see_it.png);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center top;
@@ -49,7 +49,7 @@
 
       setInterval(() => {
         if (wysi.getTime() <= Date.now()) {
-          document.body.style.backgroundImage="url(/i_see_it.png)"
+          document.body.style.backgroundImage="url(i_see_it.png)"
         }
 
         const diff = new Date(wysi.getTime() - Date.now());
