@@ -52,8 +52,20 @@
           document.body.style.backgroundImage="url(i_see_it.png)"
         }
 
-        const diff = new Date(wysi.getTime() - Date.now());
-        Wysi.innerText = `${diff.getDate()} days ${diff.getHours()} hours ${diff.getMinutes()} mins ${diff.getSeconds()} secs`;
+        let diff = new Date(wysi.getTime() - Date.now());
+
+        const days = Math.floor(diff/1000/60/60/24);
+        diff -= days*1000*60*60*24
+    
+        const hour = Math.floor(diff/1000/60/60);
+        diff -= hour*1000*60*60
+    
+        const mins = Math.floor(diff/1000/60);
+        diff -= mins*1000*60
+    
+        const secs = Math.floor(diff/1000);
+
+        Wysi.innerText = `${days} days ${hour} hours ${mins} mins ${secs} secs`;
       }, 1000);
     </script>
   </body>
